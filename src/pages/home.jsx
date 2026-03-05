@@ -1,9 +1,32 @@
+import React, { useState } from "react";
 import HeroSection from "../components/heroSection";
 import "../styles/home.css";
-import React, { useState } from "react";
+
+// --- Import all images from src/assets ---
+import directorImg from "../assets/director.jpg";
+import campus1Img from "../assets/campus1.jpg";
+import campus2Img from "../assets/campus2.jpg";
+import news1Img from "../assets/news1.jpg";
+import news2Img from "../assets/news2.jpg";
+import news3Img from "../assets/news3.jpg";
+import partner1Img from "../assets/partner1.png";
+import partner2Img from "../assets/partner2.png";
+import partner3Img from "../assets/partner3.png";
+import partner4Img from "../assets/partner4.png";
+import partner5Img from "../assets/partner5.png";
+import partner6Img from "../assets/partner6.png";
 
 function Home() {
   const [campus, setCampus] = useState(1);
+
+  const partners = [
+    partner1Img,
+    partner2Img,
+    partner3Img,
+    partner4Img,
+    partner5Img,
+    partner6Img,
+  ];
 
   return (
     <>
@@ -99,7 +122,7 @@ function Home() {
 
           <div className="director-image">
             <img
-              src="/images/director.jpg"
+              src={directorImg}
               alt="Dr. Tess Giordmaina - Director of Ascencia Malta"
             />
 
@@ -114,7 +137,6 @@ function Home() {
       {/* Campus & Location */}
       <section className="campus section">
         <div className="container campus-container">
-          {/* Left Text */}
           <div className="campus-left">
             <h2>{campus === 1 ? "Our Campus" : "Our Second Campus"}</h2>
             <p>
@@ -139,9 +161,7 @@ function Home() {
             </div>
           </div>
 
-          {/* Right Caption + Image */}
           <div className="campus-right">
-            {/* Caption above the image */}
             <div className="campus-caption">
               <h4>{campus === 1 ? "Floriana Campus" : "Innovation Campus"}</h4>
               <p>
@@ -153,11 +173,7 @@ function Home() {
 
             <img
               key={campus}
-              src={
-                campus === 1
-                  ? "/images/campus1.jpg"
-                  : "/images/campus2.jpg"
-              }
+              src={campus === 1 ? campus1Img : campus2Img}
               alt="Ascencia Malta Campus"
               className="campus-img"
             />
@@ -165,6 +181,7 @@ function Home() {
         </div>
       </section>
 
+      {/* Partner Institutions */}
       <section className="partners section">
         <div className="container text-center">
           <h2>Our Partner Institutions</h2>
@@ -174,12 +191,9 @@ function Home() {
           </p>
 
           <div className="partners-grid">
-            {[1, 2, 3, 4, 5, 6].map((num, i) => (
+            {partners.map((img, i) => (
               <div className="partner-card" key={i}>
-                <img
-                  src={`/images/partner${num}.png`}
-                  alt={`Partner ${num}`}
-                />
+                <img src={img} alt={`Partner ${i + 1}`} />
               </div>
             ))}
           </div>
@@ -194,7 +208,7 @@ function Home() {
 
           <div className="cards-grid">
             <div className="news-card">
-              <img src="/images/news1.jpg" alt="World Cancer Day" />
+              <img src={news1Img} alt="World Cancer Day" />
               <div className="news-content">
                 <p className="news-date">02/02/2026</p>
                 <h4>World Cancer Day – Cancer Awareness at Ascencia Malta</h4>
@@ -203,7 +217,7 @@ function Home() {
             </div>
 
             <div className="news-card">
-              <img src="/images/news2.jpg" alt="Historic Achievement" />
+              <img src={news2Img} alt="Historic Achievement" />
               <div className="news-content">
                 <p className="news-date">20/09/2025</p>
                 <h4>A New National Benchmark and Historic Achievement</h4>
@@ -212,7 +226,7 @@ function Home() {
             </div>
 
             <div className="news-card">
-              <img src="/images/news3.jpg" alt="Historic Achievement" />
+              <img src={news3Img} alt="Showcasing Malta" />
               <div className="news-content">
                 <p className="news-date">20/09/2025</p>
                 <h4>Showcasing Malta as a Premier Study Destination</h4>
