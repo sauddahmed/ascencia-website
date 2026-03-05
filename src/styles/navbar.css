@@ -55,9 +55,7 @@ body {
   transition: color var(--transition);
 }
 
-.logo a:hover {
-  /* color: var(--accent); */
-}
+
 
 /* --- Nav links --- */
 .nav-links {
@@ -141,9 +139,7 @@ body {
   transition: background var(--transition), transform var(--transition);
 }
 
-.dropdown-menu a:hover {
-  /* background: var(--accent); */
-}
+
 
 /* Show dropdown on hover (desktop) or active (mobile) */
 .dropdown:hover .dropdown-menu,
