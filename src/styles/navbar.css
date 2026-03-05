@@ -1,0 +1,219 @@
+/* --- Colors & fonts --- */
+:root {
+  --primary: #0B1F3A;   /* Dark navy */
+  --accent: #C8102E;    /* Red accent */
+  --white: #ffffff;
+  --muted: #f2f2f2;
+  --transition: 0.3s;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* --- Reset base --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* --- Navbar base --- */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  padding: 1rem 2%;
+  background: var(--primary);
+  display: flex;
+  justify-content: center;
+  transition: all var(--transition) ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Navbar container --- */
+.nav-container {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Logo --- */
+.logo a {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color var(--transition);
+}
+
+.logo a:hover {
+  /* color: var(--accent); */
+}
+
+/* --- Nav links --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a,
+.nav-links span {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  transition: color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links span:hover {
+  color: var(--accent);
+}
+
+/* --- Apply button --- */
+.apply-btn {
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.55rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.apply-btn:hover {
+  background: var(--white);
+  color: var(--primary);
+}
+
+/* --- Dropdown --- */
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Arrow for dropdown */
+.dropdown span::after {
+  content: " ▼";
+  font-size: 0.9rem;
+  margin-left: 0.2rem;
+}
+
+/* Dropdown menu base */
+.dropdown-menu {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary);
+  border-radius: 6px;
+  overflow: hidden;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  
+  /* Animation */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  padding: 0.6rem 1rem;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--white);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.dropdown-menu a:hover {
+  /* background: var(--accent); */
+}
+
+/* Show dropdown on hover (desktop) or active (mobile) */
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Optional: stagger each link for a premium feel */
+.dropdown-menu a:nth-child(1) { transition-delay: 0.05s; }
+.dropdown-menu a:nth-child(2) { transition-delay: 0.1s; }
+.dropdown-menu a:nth-child(3) { transition-delay: 0.15s; }
+.dropdown-menu a:nth-child(4) { transition-delay: 0.2s; }
+.dropdown-menu a:nth-child(5) { transition-delay: 0.25s; }
+
+/* --- Hamburger for mobile --- */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--white);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* --- Mobile styles --- */
+@media (max-width: 900px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--primary);
+    display: none;
+    padding: 2rem 0;
+    gap: 1.2rem;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Mobile dropdown */
+  .dropdown-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .apply-btn {
+    margin-top: 1rem;
+  }
+}
+
+/* --- Large screens --- */
+@media (min-width: 1600px) {
+  .logo a { font-size: 2rem; }
+  .nav-links a { font-size: 1rem; }
+  .apply-btn { padding: 0.6rem 1.5rem; font-size: 1rem; }
+}

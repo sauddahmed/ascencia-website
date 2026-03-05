@@ -1,0 +1,682 @@
+/* ========================= */
+/* Base Reset & Typography   */
+/* ========================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  /* CRITICAL: Prevents the page from swiping left/right on mobile */
+  overflow-x: hidden; 
+  width: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #1C1C1C;
+  line-height: 1.6;
+  background: #fff;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.text-center { text-align: center; }
+.hero-red { color: #C8102E; }
+
+/* ========================= */
+/* Container (Responsive)    */
+/* ========================= */
+.container {
+  width: 100%; 
+  max-width: 100%; 
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.section {
+  padding: clamp(4rem, 8vw, 8rem) 0;
+}
+
+/* ========================= */
+/* Welcome Intro             */
+/* ========================= */
+
+.welcome-intro {
+  background: white;
+}
+
+.welcome-intro h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.welcome-intro p {
+  max-width: 900px; /* Slightly wider for big screens */
+  margin: auto;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+/* ========================= */
+/* Programmes Section        */
+/* ========================= */
+.programmes {
+ background: linear-gradient(135deg, #0B1F3A, #122c54);
+  color: white;
+}
+
+.programmes h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.programmes p {
+  max-width: 1000px;
+  margin: auto;
+  color: white;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 3rem;
+}
+
+
+/* Cards Grid */
+/* .cards-grid {
+  display: flex;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  justify-content: center;
+} */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 0 24px 24px 24px;
+  border: 1px solid rgba(200, 164, 92, 0.4);
+  padding: 2.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+  border-color: #C8A45C;
+} */
+
+.card-subtitle {
+  font-size: 0.85rem;
+  color: #C8102E;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card h3 {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  margin: 0.5rem 0 2rem 0;
+  color: #0B1F3A;
+}
+
+.card-btn {
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  background-color: #0B1F3A;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.35s ease;
+}
+
+/* 🔥 Sliding red layer */
+.card-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #C8102E;
+  transition: left 0.4s ease;
+  z-index: -1;
+  border-radius: 8px;
+}
+
+/* Hover swipe */
+.card-btn:hover::before {
+  left: 0;
+}
+
+.card-btn:hover {
+  color: white;
+}
+
+
+
+/* ========================= */
+/* Director Section          */
+/* ========================= */
+
+.director-intro {
+  background: #ffffff;
+}
+
+.director-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.director-text {
+  flex: 1;
+}
+
+.director-text h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1.5rem;
+  color: #0B1F3A;
+}
+
+.director-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.director-signoff {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #C8102E;
+}
+
+.director-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;   /* 🔥 This is the important fix */
+  align-items: center;
+}
+
+.director-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+/* Director Caption */
+
+.director-caption {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.director-caption h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: #0B1F3A;
+  margin-bottom: 0.3rem;
+}
+
+.director-caption p {
+  font-size: 0.95rem;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+
+/* ========================= */
+/* Campus Section            */
+/* ========================= */
+.campus {
+  background: #0B1F3A;
+}
+
+.campus-container {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  flex-wrap: wrap;
+}
+
+.campus-left {
+  flex: 1 1 400px;
+}
+
+.campus-right {
+  flex: 1 1 400px;
+}
+
+.campus-left h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #eee;
+}
+
+.campus-left p {
+    color: #eee;
+}
+
+.campus-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.campus-buttons button {
+  position: relative;
+  overflow: hidden;
+  background-color: #eee;
+  color: #333;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: color 0.35s ease;
+  z-index: 1;
+}
+
+.campus-buttons button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #C8102E;
+  transition: left 0.4s ease;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+.campus-buttons button:hover::before {
+  left: 0;
+}
+
+.campus-buttons button:hover {
+  color: white;
+}
+
+.campus-buttons button.active {
+  background-color: #C8102E;
+  color: white;
+}
+
+.campus-img {
+  width: 100%;
+  aspect-ratio: 5/4;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.308);
+}
+
+.campus-caption {
+  margin-bottom: 0.5rem;
+  text-align: left;
+  color: #eee;
+}
+
+.campus-caption h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  text-align: center;
+
+}
+
+.campus-caption p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ========================= */
+/* Static Partners Section   */
+/* ========================= */
+
+.partners {
+  /* background: linear-gradient(135deg, #f9f9f9, #e0e0e0); */
+  color: #f9f9f9;
+}
+
+.partners h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #0B1F3A;
+  margin-bottom: 1rem;
+}
+
+.partners-subtitle {
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  color: #0B1F3A;
+}
+
+/* Responsive Grid */
+.partners-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  justify-items: center;
+}
+
+.partner-card img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Individual Card */
+.partner-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+/* .partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+} */
+
+
+
+
+/* ========================= */
+/* Join Us                   */
+/* ========================= */
+.join-us .primary-btn {
+  background: #0B1F3A;
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  border: none;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  transition: color 0.35s ease, transform 0.3s ease;
+}
+
+/* 🔥 Sliding red background */
+.join-us .primary-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #C8102E;
+  transition: left 0.4s ease;
+  z-index: -1;
+  border-radius: 8px;
+}
+
+/* Hover swipe */
+.join-us .primary-btn:hover::before {
+  left: 0;
+}
+
+/* Press effect */
+.join-us .primary-btn:active {
+  transform: scale(0.97);
+}
+
+/* ========================= */
+/* News Section */
+/* ========================= */
+
+.news {
+  background: #0B1F3A;
+  padding: 5rem 0;
+}
+
+.news h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #eee;
+  margin-bottom: 2rem;
+}
+
+
+
+/* News Card */
+.news-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Image */
+.news-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Content */
+.news-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.news-date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.news-content h4 {
+  margin-bottom: 1.5rem;
+  color: #0B1F3A;
+}
+
+/* Read More Button */
+.news-btn {
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  background: #0B1F3A;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.35s ease;
+}
+
+/* Swipe animation */
+.news-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #C8102E;
+  transition: left 0.4s ease;
+  z-index: -1;
+  border-radius: 8px;
+}
+
+.news-btn:hover::before {
+  left: 0;
+}
+
+.news-btn:hover {
+  color: white;
+}
+
+/* ========================= */
+/* Media Queries             */
+/* ========================= */
+@media (max-width: 480px) {
+  .cards-grid, .partners-grid {
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .partners-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .campus-buttons button {
+    padding: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .join-us .primary-btn {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 900px) {
+.campus-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.campus-left, .campus-right {
+  flex: 1 1 100%;
+}
+
+.campus-buttons {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.campus-buttons button {
+  max-width: 250px;
+  width: 100%;
+}
+
+.join-us .primary-btn {
+  width: 100%;
+}
+
+  .director-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .director-image {
+    margin-top: 2rem;
+  }
+
+  .director-text p {
+    font-size: 1rem;
+  }
+
+  .director-caption h4 {
+    font-size: 1.1rem;
+  }
+
+  .director-caption p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ultra Wide Screens (1920px+) */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .about-intro p,
+  .programmes p {
+    max-width: 1200px;
+  }
+
+  .card {
+    padding: 3rem;
+  }
+
+  .partner-card img {
+    height: 80px;
+  }
+
+  .partner-card img {
+  max-width: 160px;
+  height: auto;
+  }
+
+  .news-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+  }
+
+  .news-date {
+    font-size: 1rem;
+  }
+
+  .news-content h4 {
+    font-size: 1.5rem;
+  }
+
+  .director-image img {
+  width: 100%;
+  max-width: 800px;
+}
+}
