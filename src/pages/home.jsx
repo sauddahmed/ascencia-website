@@ -99,7 +99,7 @@ function Home() {
 
           <div className="director-image">
             <img
-              src="/src/assets/director.jpg"
+              src="/images/director.jpg"
               alt="Dr. Tess Giordmaina - Director of Ascencia Malta"
             />
 
@@ -155,8 +155,8 @@ function Home() {
               key={campus}
               src={
                 campus === 1
-                  ? "src/assets/campus1.jpg"
-                  : "src/assets/campus2.jpg"
+                  ? "/images/campus1.jpg"
+                  : "/images/campus2.jpg"
               }
               alt="Ascencia Malta Campus"
               className="campus-img"
@@ -177,7 +177,7 @@ function Home() {
             {[1, 2, 3, 4, 5, 6].map((num, i) => (
               <div className="partner-card" key={i}>
                 <img
-                  src={`src/assets/partner${num}.png`}
+                  src={`/images/partner${num}.png`}
                   alt={`Partner ${num}`}
                 />
               </div>
@@ -194,7 +194,7 @@ function Home() {
 
           <div className="cards-grid">
             <div className="news-card">
-              <img src="src/assets/news1.jpg" alt="World Cancer Day" />
+              <img src="/images/news1.jpg" alt="World Cancer Day" />
               <div className="news-content">
                 <p className="news-date">02/02/2026</p>
                 <h4>World Cancer Day – Cancer Awareness at Ascencia Malta</h4>
@@ -203,7 +203,7 @@ function Home() {
             </div>
 
             <div className="news-card">
-              <img src="src/assets/news2.jpg" alt="Historic Achievement" />
+              <img src="/images/news2.jpg" alt="Historic Achievement" />
               <div className="news-content">
                 <p className="news-date">20/09/2025</p>
                 <h4>A New National Benchmark and Historic Achievement</h4>
@@ -212,7 +212,7 @@ function Home() {
             </div>
 
             <div className="news-card">
-              <img src="src/assets/news3.jpg" alt="Historic Achievement" />
+              <img src="/images/news3.jpg" alt="Historic Achievement" />
               <div className="news-content">
                 <p className="news-date">20/09/2025</p>
                 <h4>Showcasing Malta as a Premier Study Destination</h4>
