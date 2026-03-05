@@ -10,14 +10,14 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      setScrolled(window.scrollY > 0); // navbar transparent only at very top
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <nav className={`navbar ${!scrolled ? "transparent" : ""}`}>
       <div className="nav-container">
 
         <div className="logo">
@@ -26,7 +26,6 @@ function Navbar() {
 
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          {/* <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link> */}
 
           {/* Academics Dropdown */}
           <div
@@ -61,7 +60,6 @@ function Navbar() {
           </div>
 
           <Link to="/student-life" onClick={() => setMenuOpen(false)}>Student Life</Link>
-          {/* <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link> */}
           <a href="#news" onClick={() => setMenuOpen(false)}>News & Events</a>
           <button className="apply-btn">Apply Now</button>
         </div>
