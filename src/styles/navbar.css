@@ -1,7 +1,7 @@
 /* --- Colors & fonts --- */
 :root {
-  --primary: #0B1F3A;   /* Dark navy */
-  --accent: #C8102E;    /* Red accent */
+  --primary: #0B1F3A;
+  --accent: #C8102E; 
   --white: #ffffff;
   --muted: #f2f2f2;
   --transition: 0.3s;
@@ -9,7 +9,6 @@
   --font-body: "Inter", sans-serif;
 }
 
-/* --- Reset base --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,7 +19,6 @@ body {
   font-family: var(--font-body);
 }
 
-/* --- Navbar base --- */
 .navbar {
   position: fixed;
   width: 100%;
@@ -35,13 +33,11 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* --- Transparent state (top of page) --- */
 .navbar.transparent {
   background: rgba(11, 31, 58, 0); /* fully transparent */
   box-shadow: none;
 }
 
-/* --- Navbar container --- */
 .nav-container {
   max-width: 1280px;
   width: 100%;
@@ -50,7 +46,6 @@ body {
   align-items: center;
 }
 
-/* --- Logo --- */
 .logo a {
   font-family: var(--font-heading);
   font-size: 1.8rem;
@@ -61,7 +56,6 @@ body {
   transition: color var(--transition);
 }
 
-/* --- Nav links --- */
 .nav-links {
   display: flex;
   align-items: center;
@@ -83,7 +77,6 @@ body {
   color: var(--accent);
 }
 
-/* --- Apply button --- */
 .apply-btn {
   background: var(--accent);
   color: var(--white);
@@ -101,20 +94,17 @@ body {
   color: var(--primary);
 }
 
-/* --- Dropdown --- */
 .dropdown {
   position: relative;
   cursor: pointer;
 }
 
-/* Arrow for dropdown */
 .dropdown span::after {
   content: " ▼";
   font-size: 0.9rem;
   margin-left: 0.2rem;
 }
 
-/* Dropdown menu base */
 .dropdown-menu {
   position: absolute;
   top: 105%;
@@ -127,7 +117,6 @@ body {
   min-width: 180px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   
-  /* Animation */
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -143,7 +132,6 @@ body {
   transition: background var(--transition), transform var(--transition);
 }
 
-/* Show dropdown on hover (desktop) or active (mobile) */
 .dropdown:hover .dropdown-menu,
 .dropdown.active .dropdown-menu {
   opacity: 1;
@@ -151,14 +139,12 @@ body {
   pointer-events: auto;
 }
 
-/* Optional: stagger each link for a premium feel */
 .dropdown-menu a:nth-child(1) { transition-delay: 0.05s; }
 .dropdown-menu a:nth-child(2) { transition-delay: 0.1s; }
 .dropdown-menu a:nth-child(3) { transition-delay: 0.15s; }
 .dropdown-menu a:nth-child(4) { transition-delay: 0.2s; }
 .dropdown-menu a:nth-child(5) { transition-delay: 0.25s; }
 
-/* --- Hamburger for mobile --- */
 .hamburger {
   display: none;
   font-size: 1.8rem;
@@ -167,7 +153,6 @@ body {
   user-select: none;
 }
 
-/* --- Mobile styles --- */
 @media (max-width: 900px) {
   .nav-links {
     position: absolute;
@@ -186,7 +171,6 @@ body {
     display: flex;
   }
 
-  /* Mobile dropdown */
   .dropdown-menu {
     position: relative;
     top: 0;
@@ -209,7 +193,6 @@ body {
   }
 }
 
-/* --- Large screens --- */
 @media (min-width: 1600px) {
   .logo a { font-size: 2rem; }
   .nav-links a { font-size: 1rem; }

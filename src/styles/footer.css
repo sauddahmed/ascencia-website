@@ -1,13 +1,11 @@
-/* --- Footer Base --- */
 .footer {
-  background: #0B1F3A; /* Navy */
+  background: #0B1F3A;
   color: white;
   padding: 4rem 2% 2rem 2%;
   font-family: "Inter", sans-serif;
   position: relative;
 }
 
-/* --- Grid Layout --- */
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -16,12 +14,12 @@
   margin: 0 auto;
 }
 
-/* --- Footer headings --- */
+
 .footer h3 {
   font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   margin-bottom: 1rem;
-  color: #C8A45C; /* Gold accent */
+  color: #C8A45C;
 }
 
 .footer h4 {
@@ -31,7 +29,6 @@
   font-weight: 600;
 }
 
-/* --- Footer text --- */
 .footer p {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -41,13 +38,11 @@
   transition: color 0.3s ease;
 }
 
-/* --- Footer links hover --- */
 .footer-grid div p:hover {
-  color: #C8102E; /* Red accent */
+  color: #C8102E; 
   cursor: pointer;
 }
 
-/* --- Footer bottom --- */
 .footer-bottom {
   text-align: center;
   margin-top: 3rem;
@@ -57,7 +52,6 @@
   color: rgba(255,255,255,0.7);
 }
 
-/* --- Responsive tweaks --- */
 @media (min-width: 1600px) {
   .footer-grid {
     gap: 4rem;
@@ -76,7 +70,6 @@
   }
 }
 
-/* --- Optional: subtle fade-in animation --- */
 .footer,
 .footer-grid div {
   opacity: 0;

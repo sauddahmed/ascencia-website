@@ -8,7 +8,6 @@
 }
 
 
-/* Dotted / grid overlay using CSS */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -16,12 +15,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-
-  /* Overlay pattern */
   background-image: radial-gradient(rgba(255,255,255,0.2) 1px, transparent 1px);
-  background-size: 3px 3px; /* size of dots */
-  
-  pointer-events: none; /* lets clicks go through */
+  background-size: 3px 3px;
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -64,14 +60,12 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-
   position: relative;
   overflow: hidden;
   z-index: 1;
   transition: color 0.3s ease;
 }
 
-/* Sliding background */
 .hero-btn::before {
   content: "";
   position: absolute;
@@ -84,7 +78,6 @@
   z-index: -1;
 }
 
-/* Hover animation */
 .hero-btn:hover::before {
   left: 0;
 }
@@ -93,7 +86,6 @@
   color: #0B1F3A;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .hero-content h1 {
     font-size: 2.6rem;

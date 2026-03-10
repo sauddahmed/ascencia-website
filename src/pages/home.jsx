@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import HeroSection from "../components/heroSection";
 import "../styles/home.css";
 
-// --- Import all images from src/assets ---
+
 import directorImg from "../assets/director.jpg";
 import campus1Img from "../assets/campus1.jpg";
 import campus2Img from "../assets/campus2.jpg";
